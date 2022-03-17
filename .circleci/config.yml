@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:8.1.3-node-browsers
+      - image: circleci/php:8.0-node-browsers
 
     steps:
       - checkout
@@ -52,7 +52,7 @@ jobs:
       - run:
           name: "Create database and run migration"
           command: |
-            touch database/database.sqlite
+            touch database/todo
             php artisan migrate --env=todo
 
       - run:
