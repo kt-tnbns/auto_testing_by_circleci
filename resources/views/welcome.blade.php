@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Task Catalyst - Home</title>
+        <title>Todolist - Home</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,12 +18,8 @@
 
         <div class="">
             <div class="px-8 py-3 text-center md:flex justify-between items-center bg-gray-700  text-gray-300">
-                <h1 class="md:mb-0 font-bold uppercase text-xl">Task Catalyst</h1>
-                <ul class="sm:mb-4 md:mb-0 md:flex gap-4">
-                    <li class="cursor-pointer hover:underline">+250788877777</li>
-                    <li class="md:border-2 border-red-500">  </li>
-                    <li class="cursor-pointer hover:underline">alain@taskcatalyst.com</li>
-                </ul>
+                <h1 class="md:mb-0 font-bold uppercase text-xl">Tasks</h1>
+                
                 @if (Route::has('login'))
                     <ul class="md:flex gap-4">
                         @auth
@@ -46,7 +42,7 @@
                 <div class="lg:col-span-2 overflow-hidden bg-gray-200">
                     <div class="bg-gray-200 transform -skew-y-6">
                         <div class="transform skew-y-6 text-center py-16">
-                            <h1 class="text-xl">Welcome to <span class="text-gray-700 text-xl font-bold uppercase">Task Catalyst</span></h1>
+                            <h1 class="text-xl">Welcome to <span class="text-gray-700 text-xl font-bold uppercase">Tasks</span></h1>
                             <p class="italic mt-4 text-md">Become a productivity ninja with our minimalist yet simple, effective, and easy-to-use todo list app</p>
                         </div>
                     </div>

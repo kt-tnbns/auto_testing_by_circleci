@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-600 leading-tight">
@@ -18,11 +19,11 @@
                             <p class="m-auto">Tasks</p>
                         </div>
                     </a>
-                    <a href="{{route('user.index')}}">
+                    <!-- <a href="{{route('user.index')}}">
                         <div class="bg-gray-400 hover:bg-gray-200 text-gray-200 hover:text-gray-700 h-24 md:h-48 flex transition ease-in-out duration-500 transform hover:scale-110">
                             <p class="m-auto">Profile</p>
                         </div>
-                    </a>
+                    </a> -->
                     @can('manage-users')
                     <a href="{{route('admin.users.index')}}">
                         <div class="bg-gray-400 hover:bg-gray-200 text-gray-200 hover:text-gray-700 h-24 md:h-48 flex transition ease-in-out duration-500 transform hover:scale-110">

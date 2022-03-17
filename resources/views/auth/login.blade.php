@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="{{route('welcome')}}">
-                <h1 class="md:mb-0 font-bold uppercase text-2xl text-gray-700">Task Catalyst</h1>
+                <h1 class="md:mb-0 font-bold uppercase text-2xl text-gray-700">Tasks</h1>
             </a>
         </x-slot>
 

@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <h1 class="uppercase md:text-xl block h-10 w-auto fill-current text-gray-100 mt-4">Task Catalyst</h1>
+                        <h1 class="uppercase md:text-xl block h-10 w-auto fill-current text-gray-100 mt-4">Tasks</h1>
                     </a>
                 </div>
             </div>
@@ -30,6 +30,10 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
+
+                            <x-dropdown-link :href="route('user.index')">
+                                Profile
+                            </x-dropdown-link>
 
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
