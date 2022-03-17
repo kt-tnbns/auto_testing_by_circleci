@@ -52,7 +52,7 @@ jobs:
       - run:
           name: "Create database and run migration"
           command: |
-            touch database/database.sqlite
+            touch database/todo
             php artisan migrate --env=todo
 
       - run:
