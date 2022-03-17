@@ -52,8 +52,8 @@ jobs:
       - run:
           name: "Create database and run migration"
           command: |
-            touch database/todo
-            php artisan migrate --env=todo
+            touch database/database.sqlite
+            php artisan migrate --env=testing
 
       - run:
           name: "Run Http Tests"
