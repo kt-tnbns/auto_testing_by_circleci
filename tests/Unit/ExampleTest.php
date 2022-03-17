@@ -17,13 +17,12 @@ class ExampleTest extends TestCase
     }
     public function testUserCreation()
     {
-    $user = new User([
-        'name' => "flash",
-        'email' => "test@test.com",
-        'password' => bcrypt("12345678")
-    ]);   
+        Auth::login($user = User::create([
+            'name' => "Test User",
+            'email' => "test@mail.com",
+            'password' => bcrypt("testpassword")
+        ]));
 
-    $this->assertEquals('Test User', $user->name);
+        $this->assertEquals('Test User', $user->name);
     }
-
 }
