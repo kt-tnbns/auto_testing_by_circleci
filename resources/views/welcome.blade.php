@@ -63,9 +63,7 @@
                                 <input class="bg-gray-400 py-1 px-4 rounded-lg text-gray-100 hover:bg-gray-200 hover:text-gray-500 cursor-pointer focus:outline-none" type="submit" value="subscribe">
                             </form>
                         </div>
-                        <div class="text-gray-700">
-                            <p>Failing to plan is planning to fail. - Alan Lakein</p>
-                        </div>
+
                     </div>
                 </div>
             </div>
