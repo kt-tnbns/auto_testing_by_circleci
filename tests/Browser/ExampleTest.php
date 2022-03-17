@@ -20,4 +20,11 @@ class ExampleTest extends DuskTestCase
                     ->assertSee('Laravel');
         });
     }
+    public function testLink()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                    ->clickLink('Click Me')->assertSee("Here is my response");
+        });
+    }
 }
