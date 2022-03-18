@@ -70,7 +70,7 @@ class UserTest extends TestCase
     public function test_if_data_exists_in_database()
     {
         $this->assertDatabaseHas('users', [
-            'name' => 'tang'
+            'name' => 'por'
         ]);
     }
 
