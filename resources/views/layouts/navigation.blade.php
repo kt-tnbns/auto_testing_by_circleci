@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <h1 class="uppercase md:text-xl block h-10 w-auto fill-current text-gray-100 mt-4">Tasks</h1>
+                        <h1 class="uppercase md:text-xl block h-10 w-auto fill-current text-gray-100 mt-4">Todolist</h1>
                     </a>
                 </div>
             </div>

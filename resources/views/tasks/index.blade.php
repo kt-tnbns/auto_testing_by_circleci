@@ -1,13 +1,12 @@
-
 <x-app-layout>
     <div style="width: 900px;"class="max-w-full mx-auto mt-10 px-4 py-8 text-gray-500">
         <div class="flex justify-between">
-            <h1 class="text-xl uppercase text-gray-500">Tasks</h1>
+            <h1 class="text-xl uppercase text-gray-500">Todolist</h1>
             <a href="{{route('tasks.create')}}" class="flex items-center bg-gray-200 px-2 py-1 rounded hover:bg-gray-100 border-b-4 border-gray-400">
                 <svg 
                     class="w-6 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"              stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                <span>New Task</span>
+                <span>New</span>
             </a>
         </div>
         @include('partials.notifications')
