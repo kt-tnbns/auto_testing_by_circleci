@@ -76,7 +76,7 @@ class UserTest extends TestCase
 
     public function test_if_data_does_not_exists_in_database()
     {
-        $this->assertDatabaseHas('users', [
+        $this->assertDatabaseMissing('users', [
             'name' => 'tang'
         ]);
     }
