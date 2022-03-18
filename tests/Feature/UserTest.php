@@ -56,4 +56,15 @@ class UserTest extends TestCase
 
         $this->assertTrue(true);
     }
+    public function test_if_it_stores_new_users()
+    {
+        $response = $this->post('/register', [
+            'name' => 'Por',
+            'email' => 'Por@gmail.com',
+            'password' => '12345678',
+            'password_confirmation' => '12345678'
+        ]);
+
+        $response->assertRedirect('/dashboard');
+    }
 }
