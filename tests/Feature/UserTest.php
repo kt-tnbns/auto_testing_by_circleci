@@ -79,8 +79,5 @@ class UserTest extends TestCase
         $this->assertDatabaseMissing('users', [
             'name' => 'tang'
         ]);
-        $this->assertDatabaseMissing('users', [
-            'name' => 'por'
-        ]);
     }
 }
