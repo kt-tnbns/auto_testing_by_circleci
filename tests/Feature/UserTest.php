@@ -31,13 +31,13 @@ class UserTest extends TestCase
     public function test_user_duplication()
     {
         $user1 = User::make([
-            'name' => 'John Doe',
-            'email' => 'johndoe@gmail.com'
+            'name' => 'flash',
+            'email' => 'flash@gmail.com'
         ]);
 
         $user2 = User::make([
-            'name' => 'Mary Jane',
-            'email' => 'maryjane@gmail.com'
+            'name' => 'tang',
+            'email' => 'tang@gmail.com'
         ]);
 
         $this->assertTrue($user1->name != $user2->name);
