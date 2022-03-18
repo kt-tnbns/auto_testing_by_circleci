@@ -59,12 +59,25 @@ class UserTest extends TestCase
     public function test_if_it_stores_new_users()
     {
         $response = $this->post('/register', [
-            'name' => 'Por',
-            'email' => 'Por@gmail.com',
+            'name' => 'por',
+            'email' => 'por@gmail.com',
             'password' => '12345678',
             'password_confirmation' => '12345678'
         ]);
 
         $response->assertRedirect('/dashboard');
+    }
+    public function test_if_data_exists_in_database()
+    {
+        $this->assertDatabaseHas('users', [
+            'name' => 'tang'
+        ]);
+    }
+
+    public function test_if_data_does_not_exists_in_database()
+    {
+        $this->assertDatabaseHas('users', [
+            'name' => 'tang'
+        ]);
     }
 }
