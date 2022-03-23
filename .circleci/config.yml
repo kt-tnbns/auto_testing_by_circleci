@@ -57,7 +57,7 @@ jobs:
 
       - run:
           name: "DB Seeder"
-          command: php artisan db:seed --force
+          command: php artisan db:seed 
 
       - run:
           name: "Run Http Tests"
