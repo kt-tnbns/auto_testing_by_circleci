@@ -58,3 +58,8 @@ jobs:
       - run:
           name: "Run Http Tests"
           command: ./vendor/bin/phpunit tests/Feature
+
+
+      - run:
+          name: "DB Seeder"
+          command: php artisan db:seed --class=UsersTableSeeder
