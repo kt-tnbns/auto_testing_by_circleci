@@ -53,7 +53,11 @@ jobs:
           name: "Create database and run migration"
           command: |
             touch database/database.sqlite
-            php artisan migrate --env=testing
+            php artisan migrate --env=testing 
+
+      - run:
+          name: "DB Seeder"
+          command: php artisan db:seed --force
 
       - run:
           name: "Run Http Tests"
