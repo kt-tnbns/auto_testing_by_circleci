@@ -56,10 +56,11 @@ jobs:
             php artisan migrate --env=testing 
 
       - run:
+          name: "DB Seeder"
+          command: php artisan db:seed --force
+
+      - run:
           name: "Run Http Tests"
           command: ./vendor/bin/phpunit tests/Feature
 
 
-      - run:
-          name: "DB Seeder"
-          command: php artisan db:seed
