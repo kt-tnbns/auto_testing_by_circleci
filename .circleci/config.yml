@@ -62,4 +62,4 @@ jobs:
 
       - run:
           name: "DB Seeder"
-          command: php artisan db:seed --class=RolesTableSeeder
+          command: php artisan db:seed
