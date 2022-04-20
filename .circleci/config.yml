@@ -46,10 +46,6 @@ jobs:
 
       # run tests with phpunit
       - run:
-          name: "Run Unit Tests"
-          command: ./vendor/bin/phpunit tests/Unit
-
-      - run:
           name: "Create database and run migration"
           command: |
             touch database/database.sqlite
@@ -60,6 +56,22 @@ jobs:
           command: php artisan db:seed 
 
       - run:
-          name: "Run Http Tests"
+          name: "Run Feature Tests"
           command: ./vendor/bin/phpunit tests/Feature
+
+      - run:
+          name: "Run BAT Tests"
+          command: ./vendor/bin/phpunit tests/BAT
+
+      - run:
+          name: "Run UAT Tests"
+          command: ./vendor/bin/phpunit tests/UAT
+
+      - run:
+          name: "Run Integration Tests"
+          command: ./vendor/bin/phpunit tests/Integration
+      
+      - run:
+          name: "Run Unit Tests"
+          command: ./vendor/bin/phpunit tests/Unit
 
