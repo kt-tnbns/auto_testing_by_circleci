@@ -1,18 +1,16 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\BAT;
 
-use PHPUnit\Framework\TestCase;
+use App\Models\Task;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Str;
+use Tests\TestCase;
 
-class DeleteTaskBAT extends TestCase
-{
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
-    {
-        $this->assertTrue(true);
+class DeleteTaskBAT extends TestCase {
+    public function test_delete_undefined_task(){
+        $this->delete('/tasks/100');
+        $this->assertGuest();
     }
 }
