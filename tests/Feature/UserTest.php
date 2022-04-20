@@ -43,43 +43,43 @@ class UserTest extends TestCase
         $this->assertTrue($user1->name != $user2->name);
     }
 
-    public function test_if_it_stores_new_users()
-    {
-        $response = $this->post('/register', [
-            'name' => 'por',
-            'email' => 'por@gmail.com',
-            'password' => '12345678',
-            'password_confirmation' => '12345678'
-        ]);
+    // public function test_if_it_stores_new_users()
+    // {
+    //     $response = $this->post('/register', [
+    //         'name' => 'por',
+    //         'email' => 'por@gmail.com',
+    //         'password' => '12345678',
+    //         'password_confirmation' => '12345678'
+    //     ]);
 
-        $response->assertRedirect('/dashboard');
-    }
+    //     $response->assertRedirect('/dashboard');
+    // }
 
-    public function test_if_data_exists_in_database()
-    {
-        $this->assertDatabaseHas('users', [
-            'name' => 'por'
-        ]);
-    }
+    // public function test_if_data_exists_in_database()
+    // {
+    //     $this->assertDatabaseHas('users', [
+    //         'name' => 'por'
+    //     ]);
+    // }
 
-    //Test if a user can be deleted (make sure that you add the middleware)
-    public function test_delete_user()
-    {
-        $user = User::factory()->count(1)->make();
+    // //Test if a user can be deleted (make sure that you add the middleware)
+    // public function test_delete_user()
+    // {
+    //     $user = User::factory()->count(1)->make();
 
-        $user = User::first();
+    //     $user = User::first();
 
-        if($user) {
-            $user->delete();
-        }
+    //     if($user) {
+    //         $user->delete();
+    //     }
 
-        $this->assertTrue(true);
-    }
+    //     $this->assertTrue(true);
+    // }
 
-    public function test_if_data_does_not_exists_in_database()
-    {
-        $this->assertDatabaseMissing('users', [
-            'name' => 'por'
-        ]);
-    }
+    // public function test_if_data_does_not_exists_in_database()
+    // {
+    //     $this->assertDatabaseMissing('users', [
+    //         'name' => 'por'
+    //     ]);
+    // }
 }

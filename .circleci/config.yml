@@ -55,9 +55,9 @@ jobs:
           name: "DB Seeder"
           command: php artisan db:seed 
 
-      - run:
-          name: "Run Feature Tests"
-          command: ./vendor/bin/phpunit tests/Feature
+      # - run:
+      #     name: "Run Feature Tests"
+      #     command: ./vendor/bin/phpunit tests/Feature
 
       - run:
           name: "Run BAT Tests"

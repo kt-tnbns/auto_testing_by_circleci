@@ -4,8 +4,12 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\User;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Hash;
 use Database\Seeders\UsersTableSeeder;
+use App\Providers\RouteServiceProvider;
 
 class UserUnitTest extends TestCase
 {
@@ -46,7 +50,7 @@ class UserUnitTest extends TestCase
             'password_confirmation' => '12345678'
         ]);
 
-        $response->assertRedirect('/dashboard');
+        $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
     public function test_if_data_exists_in_database()
@@ -56,24 +60,43 @@ class UserUnitTest extends TestCase
         ]);
     }
 
-    //Test if a user can be deleted (make sure that you add the middleware)
-    public function test_delete_user()
+    public function testUpdateUser()
     {
-        $user = User::factory()->count(1)->make();
+		//just creating a new user in case of no user 
+
+        $data['name'] = 'tang';
 
         $user = User::first();
+        $user->update($data);
 
-        if($user) {
-            $user->delete();
-        }
+        $this->assertInstanceOf(User::class, $user);
+
+        $this->assertEquals($data['name'], $user->name);
+
+        $this->assertTrue(true);
+    }
+    public function test_if_data_exists_in_database2()
+    {
+        $this->assertDatabaseHas('users', [
+            'name' => 'tang'
+        ]);
+    }
+    public function testUpdateUser2()
+    {
+		//just creating a new user in case of no user 
+
+        $data['name'] = 'por';
+
+        $user = User::first();
+        $user->update($data);
+
+        $this->assertInstanceOf(User::class, $user);
+
+        $this->assertEquals($data['name'], $user->name);
 
         $this->assertTrue(true);
     }
 
-    public function test_if_data_does_not_exists_in_database()
-    {
-        $this->assertDatabaseMissing('users', [
-            'name' => 'por'
-        ]);
+
+
     }
-}
