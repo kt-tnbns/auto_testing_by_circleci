@@ -1,0 +1,77 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # Specify the version you desire here
+      - image: circleci/php:8.0-node-browsers
+
+    steps:
+      - checkout
+
+      - run:
+          name: "Prepare Environment"
+          command: |
+            sudo apt update
+            sudo docker-php-ext-install zip
+
+      - run:
+          name: "Create Environment file"
+          command: |
+            mv .env.testing .env
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # "composer.lock" can be used if it is committed to the repo
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: "Install Dependencies"
+          command: composer install -n --prefer-dist
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+
+      - run:
+          name: "Generate App key"
+          command: php artisan key:generate
+
+      # run tests with phpunit
+      - run:
+          name: "Create database and run migration"
+          command: |
+            touch database/database.sqlite
+            php artisan migrate --env=testing 
+
+      - run:
+          name: "DB Seeder"
+          command: php artisan db:seed 
+
+      # - run:
+      #     name: "Run Feature Tests"
+      #     command: ./vendor/bin/phpunit tests/Feature
+
+      - run:
+          name: "Run BAT Tests"
+          command: ./vendor/bin/phpunit tests/BAT
+
+      - run:
+          name: "Run UAT Tests"
+          command: ./vendor/bin/phpunit tests/UAT
+
+      - run:
+          name: "Run Integration Tests"
+          command: ./vendor/bin/phpunit tests/Integration
+      
+      - run:
+          name: "Run Unit Tests"
+          command: ./vendor/bin/phpunit tests/Unit
+

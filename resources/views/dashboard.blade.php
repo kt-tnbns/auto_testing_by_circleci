@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-600 leading-tight">
@@ -9,14 +8,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden sm:rounded-lg">
-                <h1 class="text-center md:text-left px-6 text-xl text-gray-600">Dashboard</h1>
+                <h1 class="text-center md:text-left px-6 text-xl text-gray-600">Todolist</h1>
                 <div class="px-6 mt-4">
                     <p class="text-center md:text-left text-md text-green-700 text-md">Welcome {{Auth::user()->name}}!</p>
                 </div>
                 <div class="p-6 mt-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:grid-60 text-gray-700 uppercase">
                     <a href="{{route('tasks.index')}}">
                         <div class="bg-gray-200 hover:bg-gray-400 hover:text-gray-200 h-24 md:h-48 flex transition duration-500 ease-in-out transform hover:scale-110">
-                            <p class="m-auto">Tasks</p>
+                            <p class="m-auto">todolist</p>
                         </div>
                     </a>
                     <!-- <a href="{{route('user.index')}}">
